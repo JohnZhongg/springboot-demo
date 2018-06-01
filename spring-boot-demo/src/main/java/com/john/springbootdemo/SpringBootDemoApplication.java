@@ -2,20 +2,14 @@ package com.john.springbootdemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author JohnZhong
+ *
+ *  This is the boot to run the spring-boot-starter-*.
  */
-@SpringBootApplication
-@RestController
+@SpringBootApplication(scanBasePackages = {"com.john.springbootdemo.controller", "com.john.springbootdemo.service"})
 public class SpringBootDemoApplication {
-
-    @GetMapping("greeting")
-    public String greeting(){
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootDemoApplication.class, args);
