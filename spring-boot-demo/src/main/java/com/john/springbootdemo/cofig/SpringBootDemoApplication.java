@@ -1,14 +1,16 @@
-package com.john.springbootdemo;
+package com.john.springbootdemo.cofig;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
 
 /**
  * @author JohnZhong
  *
  *  This is the boot to run the spring-boot-starter-*.
  */
-@SpringBootApplication(scanBasePackages = {"com.john.springbootdemo.controller", "com.john.springbootdemo.service"})
+@SpringBootApplication()
+@Import({ControllerConfiguration.class, ServiceConfiguration.class})
 public class SpringBootDemoApplication {
 
     public static void main(String[] args) {
