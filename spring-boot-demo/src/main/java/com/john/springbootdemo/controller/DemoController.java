@@ -21,4 +21,16 @@ public class DemoController {
     public String greeting(){
         return demoService.getGreetingInfo();
     }
+
+
+    /**
+     * 热部署测试方法
+     * @return
+     */
+    @GetMapping("/eating")
+    public String eating(){
+        return "我在吃饭！";
+    }
+
+
 }
