@@ -1,5 +1,6 @@
 package com.john.springbootdemo.controller;
 
+import com.john.springbootdemo.exception.MyException;
 import com.john.springbootdemo.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +36,12 @@ public class DemoController {
     @PostMapping("/eating")
     public String eating(String animal){
         return demoService.eating(animal);
+    }
+
+
+    @GetMapping("/error")
+    public String error() throws MyException{
+        throw new MyException();
     }
 
 
