@@ -1,10 +1,15 @@
- <!-- FlatFy Theme - Andrea Galanti /-->
+<!-- FlatFy Theme - Andrea Galanti /-->
 <!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--> <html> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>
+<html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
@@ -15,101 +20,106 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
- 
+
     <!-- Custom Google Web Font -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
-	
+    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+
     <!-- Custom CSS-->
     <link href="css/general.css" rel="stylesheet">
-	
-	 <!-- Owl-Carousel -->
+
+    <!-- Owl-Carousel -->
     <link href="css/custom.css" rel="stylesheet">
-	<link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
     <link href="css/owl.theme.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/animate.css" rel="stylesheet">
-	
-	<!-- Magnific Popup core CSS file -->
-	<link rel="stylesheet" href="css/magnific-popup.css"> 
-	
-	<script src="js/modernizr-2.6.2.min.js"></script>  <!-- Modernizr /-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <script src="js/modernizr-2.6.2.min.js"></script>  <!-- Modernizr /-->
 </head>
 
 <body id="home">
 
-	<!-- Preloader -->
-	<div id="preloader">
-		<div id="status"></div>
-	</div>
-	
-	<!-- FullScreen -->
-    <div class="intro-header">
-		<div class="col-xs-12 text-center abcen1">
-			<h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">John Home</h1>
-			<h3 id="welcome" class="h3_home wow fadeIn" data-wow-delay="0.6s"></h3>
-			<div align="left">
-				<select id="animal" style="color: #ffffff;background-color: #2a7aaf">
-					<option value="person">人类</option>
-					<option value="cat">猫</option>
-					<option value="dog">狗</option>
-				</select>
-				的食物是<span id="animalFood" style="color: #ff9ab5">大米</span>
-			</div>
-		</div>    
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"></div>
+</div>
+
+<!-- FullScreen -->
+<div class="intro-header">
+    <div align="center">
+        <select id="animal" style="color: #ffffff;background-color: #2a7aaf">
+            <option value="person">人类</option>
+            <option value="cat">猫</option>
+            <option value="dog">狗</option>
+        </select>
+        的食物是<span id="animalFood" style="color: #ff9ab5">大米</span>
+    </div>
+
+    <div class="col-xs-12 text-center abcen1">
+        <h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">John Home</h1>
+        <h3 id="welcome" class="h3_home wow fadeIn" data-wow-delay="0.6s"></h3>
+        <ul class="list-inline intro-social-buttons">
+            <li><a href="add.html" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">Add New Car</span></a>
+            </li>
+        </ul>
 
     </div>
-	
-	
 
-    <!-- JavaScript -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
-	<script src="js/owl.carousel.js"></script>
-	<script src="js/script.js"></script>
-	<!-- StikyMenu -->
-	<script src="js/stickUp.min.js"></script>
-	<script type="text/javascript">
-	  jQuery(function($) {
-		$(document).ready( function() {
-		  $('.navbar-default').stickUp();
-		  
-		});
-	  });
+</div>
 
 
-      //初始化页面的时候发送请求初始化欢迎信息
-      var url="/demo/greeting";
-      var callback = function(data){
-          $("#welcome").html(data);
-      };
-      setInterval(function () {
-          $.get(url, callback)
-      }, 1000);
+<!-- JavaScript -->
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/script.js"></script>
+<!-- StikyMenu -->
+<script src="js/stickUp.min.js"></script>
+<script type="text/javascript">
+    jQuery(function ($) {
+        $(document).ready(function () {
+            $('.navbar-default').stickUp();
 
-      $("#animal").change(function () {
-          $("#animalShowed").html($("option[value=" + $(this).val() + "]").html());
+        });
+    });
 
-          var url = "/demo/eating";
-          var data = {animal:$(this).val()};
-          var callback = function (data) {
-              $("#animalFood").html(data);
-          }
-          $.post(url, data, callback);
-      });
-	
-	</script>
-	<!-- Smoothscroll -->
-	<script type="text/javascript" src="js/jquery.corner.js"></script> 
-	<script src="js/wow.min.js"></script>
-	<script>
-	 new WOW().init();
-	</script>
-	<script src="js/classie.js"></script>
-	<script src="js/uiMorphingButton_inflow.js"></script>
-	<!-- Magnific Popup core JS file -->
-	<script src="js/jquery.magnific-popup.js"></script> 
+
+    //初始化页面的时候发送请求初始化欢迎信息
+    var url = "/demo/greeting";
+    var callback = function (data) {
+        $("#welcome").html(data);
+    };
+    setInterval(function () {
+        $.get(url, callback)
+    }, 1000);
+
+    $("#animal").change(function () {
+        $("#animalShowed").html($("option[value=" + $(this).val() + "]").html());
+
+        var url = "/demo/eating";
+        var data = {animal: $(this).val()};
+        var callback = function (data) {
+            $("#animalFood").html(data);
+        }
+        $.post(url, data, callback);
+    });
+
+</script>
+<!-- Smoothscroll -->
+<script type="text/javascript" src="js/jquery.corner.js"></script>
+<script src="js/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
+<script src="js/classie.js"></script>
+<script src="js/uiMorphingButton_inflow.js"></script>
+<!-- Magnific Popup core JS file -->
+<script src="js/jquery.magnific-popup.js"></script>
 </body>
 
 </html>

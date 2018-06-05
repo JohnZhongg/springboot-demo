@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.john.springbootdemo.dao.CarMapper">
+  <resultMap id="BaseResultMap" type="com.john.springbootdemo.entity.Car">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Mon Jun 04 17:39:28 CST 2018. by MyBatis Generator, do not modify.
+    -->
+    <id column="t_id" jdbcType="INTEGER" property="id" />
+    <result column="t_carType" jdbcType="VARCHAR" property="carType" />
+    <result column="t_desc" jdbcType="VARCHAR" property="desc" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Mon Jun 04 17:39:28 CST 2018. by MyBatis Generator, do not modify.
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Mon Jun 04 17:39:28 CST 2018. by MyBatis Generator, do not modify.
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Mon Jun 04 17:39:28 CST 2018. by MyBatis Generator, do not modify.
+    -->
+    t_id, t_carType, t_desc
+  </sql>
+  <select id="selectByExample" parameterType="com.john.springbootdemo.entity.CarExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Mon Jun 04 17:39:28 CST 2018. by MyBatis Generator, do not modify.
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_car
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Mon Jun 04 17:39:28 CST 2018. by MyBatis Generator, do not modify.
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from t_car
+    where t_id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Mon Jun 04 17:39:28 CST 2018. by MyBatis Generator, do not modify.
+    -->
+    delete from t_car
+    where t_id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.john.springbootdemo.entity.CarExample">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Mon Jun 04 17:39:28 CST 2018. by MyBatis Generator, do not modify.
+    -->
+    delete from t_car
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.john.springbootdemo.entity.Car">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Mon Jun 04 17:39:28 CST 2018. by MyBatis Generator, do not modify.
+    -->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_car (t_carType, t_desc)
+    values (#{carType,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.john.springbootdemo.entity.Car">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Mon Jun 04 17:39:28 CST 2018. by MyBatis Generator, do not modify.
+    -->
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_car
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="carType != null">
+        t_carType,
+      </if>
+      <if test="desc != null">
+        t_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="carType != null">
+        #{carType,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.john.springbootdemo.entity.CarExample" resultType="java.lang.Long">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Mon Jun 04 17:39:28 CST 2018. by MyBatis Generator, do not modify.
+    -->
+    select count(*) from t_car
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Mon Jun 04 17:39:28 CST 2018. by MyBatis Generator, do not modify.
+    -->
+    update t_car
+    <set>
+      <if test="record.id != null">
+        t_id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.carType != null">
+        t_carType = #{record.carType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.desc != null">
+        t_desc = #{record.desc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Mon Jun 04 17:39:28 CST 2018. by MyBatis Generator, do not modify.
+    -->
+    update t_car
+    set t_id = #{record.id,jdbcType=INTEGER},
+      t_carType = #{record.carType,jdbcType=VARCHAR},
+      t_desc = #{record.desc,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.john.springbootdemo.entity.Car">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Mon Jun 04 17:39:28 CST 2018. by MyBatis Generator, do not modify.
+    -->
+    update t_car
+    <set>
+      <if test="carType != null">
+        t_carType = #{carType,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        t_desc = #{desc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where t_id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.john.springbootdemo.entity.Car">
+    <!--
+      WARNING - @mbg.generated  This element was generated on Mon Jun 04 17:39:28 CST 2018. by MyBatis Generator, do not modify.
+    -->
+    update t_car
+    set t_carType = #{carType,jdbcType=VARCHAR},
+      t_desc = #{desc,jdbcType=VARCHAR}
+    where t_id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
