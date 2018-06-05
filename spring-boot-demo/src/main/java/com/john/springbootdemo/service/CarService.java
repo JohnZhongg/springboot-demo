@@ -21,4 +21,26 @@ public interface CarService {
      * @return 返回的所有Car
      */
     List<Car> listAll();
+
+
+    /**
+     * 根据id删除一个Car
+     * @param id
+     */
+    void deleteOne(Integer id);
+
+
+    /**
+     * 根据id跟新一个Car
+     * @param car
+     */
+    void updateOne(Car car);
+
+
+    /**
+     * 根据id查找一个Car
+     * @param id
+     * @return
+     */
+    Car queryOne(Integer id);
 }

@@ -29,4 +29,19 @@ public class CarServiceImpl implements CarService {
     public List<Car> listAll() {
         return carMapper.selectByExample(null);
     }
+
+    @Override
+    public void deleteOne(Integer id) {
+        carMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public void updateOne(Car car) {
+        carMapper.updateByPrimaryKeySelective(car);
+    }
+
+    @Override
+    public Car queryOne(Integer id) {
+        return carMapper.selectByPrimaryKey(id);
+    }
 }
