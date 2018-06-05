@@ -1,0 +1,24 @@
+package com.john.springbootdemo.service;
+
+import com.john.springbootdemo.entity.Car;
+
+import java.util.List;
+
+/**
+ * @author JohnZhong
+ *
+ * CarService
+ */
+public interface CarService {
+    /**
+     *  增加一个Car
+     * @param car 新增的Car
+     */
+    void add(Car car);
+
+    /**
+     *  查找所有的Car
+     * @return 返回的所有Car
+     */
+    List<Car> listAll();
+}
