@@ -1,5 +1,8 @@
 package com.john.springbootdemo.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 /**
@@ -9,12 +12,14 @@ import java.io.Serializable;
  *
  * @author 
  */
+@ApiModel(value = "车辆实体", description = "封装车辆信息")
 public class Car implements Serializable {
     /**
      *
      *
      * @mbg.generated Mon Jun 04 17:39:28 CST 2018
      */
+    @ApiModelProperty(value = "id", notes = "主键")
     private Integer id;
 
     /**
@@ -22,6 +27,7 @@ public class Car implements Serializable {
      *
      * @mbg.generated Mon Jun 04 17:39:28 CST 2018
      */
+    @ApiModelProperty(value = "车辆类型", notes = "车型")
     private String carType;
 
     /**
@@ -29,6 +35,7 @@ public class Car implements Serializable {
      *
      * @mbg.generated Mon Jun 04 17:39:28 CST 2018
      */
+    @ApiModelProperty(value = "描述", notes = "对于车辆的详细描述")
     private String desc;
 
     /**

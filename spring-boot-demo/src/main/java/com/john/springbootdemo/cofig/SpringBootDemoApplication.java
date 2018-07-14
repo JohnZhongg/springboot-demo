@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @EnableAutoConfiguration
-@Import({ControllerConfiguration.class, ServiceConfiguration.class, DaoConfiguration.class, ComponentConfiguration.class})
+@Import({ControllerConfiguration.class, ServiceConfiguration.class, DaoConfiguration.class, ComponentConfiguration.class, Swagger2Config.class, WebConfig.class})
 public class SpringBootDemoApplication {
 
     public static void main(String[] args) {

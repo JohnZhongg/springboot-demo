@@ -1,12 +1,15 @@
 package com.john.springbootdemo.controller;
 
+import com.john.springbootdemo.entity.DemoAObj;
+import com.john.springbootdemo.entity.DemoBObj;
+import com.john.springbootdemo.entity.DemoCObj;
+import com.john.springbootdemo.entity.DemoDObj;
 import com.john.springbootdemo.exception.MyException;
 import com.john.springbootdemo.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author JohnZhong
@@ -44,7 +47,30 @@ public class DemoController {
         throw new MyException();
     }
 
+    @PostMapping("/receiveArrayInObject")
+    public String receiveArrayInObject(@RequestBody DemoAObj demoObj){
+        List<DemoBObj> demoBObjList = demoObj.getDemoBObjList();
+        for (DemoBObj demoBObj : demoBObjList) {
+            Integer[] idArr = demoBObj.getIdArr();
+            for (int i = 0; i < idArr.length; i++) {
+                Integer integer = idArr[i];
+                System.out.println(integer);
+            }
+        }
+        return "ok";
+    }
 
+    @PostMapping("/receiveListInObject")
+    public String receiveListInObject(@RequestBody DemoCObj demoObj){
+        List<DemoDObj> demoDObjList = demoObj.getDemoDObjList();
+        for (DemoDObj demoDObj : demoDObjList) {
+            List<String> list = demoDObj.getList();
+            for (String s : list) {
+                System.out.println(s);
+            }
+        }
+        return "ok";
+    }
 
 
 }

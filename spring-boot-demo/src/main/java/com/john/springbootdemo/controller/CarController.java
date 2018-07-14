@@ -3,6 +3,9 @@ package com.john.springbootdemo.controller;
 import com.john.springbootdemo.entity.Car;
 import com.john.springbootdemo.service.CarService;
 import com.john.springbootdemo.vo.Result;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +16,7 @@ import java.util.List;
  *
  * CarController
  */
+@Api(value = "车辆控制器", description = "车辆信息等数据操作")
 @RestController
 @RequestMapping("/car")
 public class CarController {
@@ -25,6 +29,7 @@ public class CarController {
      * @param car
      * @return
      */
+    @ApiOperation(value = "增加或者修改", notes = "增加或者修改一个车辆实体信息", httpMethod = "POST")
     @PostMapping("/addOrUpdate")
     public Result addOrUpdate(Car car){
         if(car.getId() == null){
@@ -40,6 +45,7 @@ public class CarController {
      * 查找所有的Car
      * @return
      */
+    @ApiOperation(value = "查找所有的Car", notes = "查找所有车辆", httpMethod = "GET")
     @GetMapping("/listAll")
     public Result listAll(){
         List<Car> carList =  carService.listAll();
@@ -51,6 +57,8 @@ public class CarController {
      * @param id
      * @return
      */
+    @ApiOperation(value = "删除一个car", notes = "删除一个车辆", httpMethod = "POST")
+    @ApiImplicitParam(name  = "id", value = "car的主键", dataType = "INTEGER")
     @PostMapping("/deleteOne")
     public Result deleteOne(@RequestParam(value = "id")Integer id){
         carService.deleteOne(id);
@@ -63,6 +71,8 @@ public class CarController {
      * @param id
      * @return
      */
+    @ApiOperation(value = "根据id查找一个car", notes = "根据id查找一个车辆", httpMethod = "POST")
+    @ApiImplicitParam(name  = "id", value = "car的主键", dataType = "INTEGER")
     @PostMapping("/queryOne")
     public Result queryOne(@RequestParam(value = "id")Integer id){
         Car car = carService.queryOne(id);
