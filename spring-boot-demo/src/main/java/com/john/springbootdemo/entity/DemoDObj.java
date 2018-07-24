@@ -18,4 +18,11 @@ public class DemoDObj {
     public void setList(List<String> list) {
         this.list = list;
     }
+
+    @Override
+    public String toString() {
+        return "DemoDObj{" +
+                "list=" + list +
+                '}';
+    }
 }

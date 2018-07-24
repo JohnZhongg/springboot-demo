@@ -1,15 +1,13 @@
 package com.john.springbootdemo.controller;
 
-import com.john.springbootdemo.entity.DemoAObj;
-import com.john.springbootdemo.entity.DemoBObj;
-import com.john.springbootdemo.entity.DemoCObj;
-import com.john.springbootdemo.entity.DemoDObj;
+import com.john.springbootdemo.entity.*;
 import com.john.springbootdemo.exception.MyException;
 import com.john.springbootdemo.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author JohnZhong
@@ -68,6 +66,24 @@ public class DemoController {
             for (String s : list) {
                 System.out.println(s);
             }
+        }
+        return "ok";
+    }
+
+    @PostMapping("/test1")
+    public String test1(@RequestBody DemoEObj demoEObj ){
+        Map<Integer, String> stringMap = demoEObj.getStringMap();
+        for (Map.Entry<Integer, String> integerStringEntry : stringMap.entrySet()) {
+            System.out.println(integerStringEntry.getKey() + "：" + integerStringEntry.getValue());
+        }
+
+        Map<String, DemoDObj> demoDObjMap = demoEObj.getDemoDObjMap();
+        for (Map.Entry<String, DemoDObj> stringDemoDObjEntry : demoDObjMap.entrySet()) {
+            System.out.println(stringDemoDObjEntry.getKey() + "：" + stringDemoDObjEntry.getValue());
+        }
+        Car[] cars = demoEObj.getCars();
+        for (Car car : cars) {
+            System.out.println(car);
         }
         return "ok";
     }

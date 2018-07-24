@@ -31,7 +31,7 @@ public class CarController {
      */
     @ApiOperation(value = "增加或者修改", notes = "增加或者修改一个车辆实体信息", httpMethod = "POST")
     @PostMapping("/addOrUpdate")
-    public Result addOrUpdate(Car car){
+    public Result addOrUpdate(@RequestBody Car car){
         if(car.getId() == null){
             carService.add(car);
         }else{
